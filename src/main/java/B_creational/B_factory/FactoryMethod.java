@@ -11,8 +11,8 @@ package B_creational.B_factory;
  */
 public class FactoryMethod {
     public static void main(String[] args) {
-        Point p1 = Point.newCartesianPoint(3, 4);
-        Point p2 = Point.newPolarPoint(3, 4);
+        Point p1 = Point.Factory.newCartesianPoint(3, 4);
+        Point p2 = Point.Factory.newPolarPoint(3, 4);
         System.out.println(p1);
         System.out.println(p2);
     }
@@ -30,17 +30,21 @@ class Point {
         this.y = y;
     }
     
-    public static Point newCartesianPoint(double x, double b) {
-        return new Point(x, b);
-    }
-    
-    public static Point newPolarPoint(double rho, double theta) {
-        return new Point(rho*Math.cos(theta), rho*Math.sin(theta));
-    }
 
     @Override
     public String toString() {
         return "Point{" + "x=" + x + ", y=" + y + '}';
+    }
+    
+    static class Factory {
+        
+        public static Point newCartesianPoint(double x, double b) {
+            return new Point(x, b);
+        }
+
+        public static Point newPolarPoint(double rho, double theta) {
+            return new Point(rho*Math.cos(theta), rho*Math.sin(theta));
+        }
     }
     
 }
