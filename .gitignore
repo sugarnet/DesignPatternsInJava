@@ -3,3 +3,5 @@ build/
 manifest.mf
 nbproject/
 /target/
+.idea/
+designpatternsinjava.iml
