@@ -2,6 +2,11 @@ package B_creational.C_prototype;
 
 public class D_Exercise {
     public static void main(String[] args) {
+        Line line = new Line(new Point(2, 3), new Point(4, 5));
+        Line line2 = line.deepCopy();
+        line2.start.x = 6;
+        System.out.println(line);
+        System.out.println(line2);
     }
 }
 
@@ -43,5 +48,12 @@ class Line
         return new Line(new Point(start), new Point(end));
     }
 
+    @Override
+    public String toString() {
+        return "Line{" +
+                "start=" + start +
+                ", end=" + end +
+                '}';
+    }
 }
 
