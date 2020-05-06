@@ -2,7 +2,7 @@ build.xml
 build/
 manifest.mf
 nbproject/
-/target/
+target/
 .idea/
 designpatternsinjava.iml
 singleton.bin

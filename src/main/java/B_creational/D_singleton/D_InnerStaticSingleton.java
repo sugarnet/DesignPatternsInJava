@@ -1,6 +1,10 @@
 package B_creational.D_singleton;
 
 public class D_InnerStaticSingleton {
+    public static void main(String[] args) {
+        InnerStaticSingleton instance = InnerStaticSingleton.getInstance();
+        System.out.println(instance);
+    }
 }
 
 class InnerStaticSingleton {
@@ -10,7 +14,7 @@ class InnerStaticSingleton {
         private static final InnerStaticSingleton INSTANCE = new InnerStaticSingleton();
     }
 
-    public InnerStaticSingleton getInstance() {
+    public static InnerStaticSingleton getInstance() {
         return Impl.INSTANCE;
     }
 }
