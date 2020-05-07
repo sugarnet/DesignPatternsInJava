@@ -1,6 +1,16 @@
 package C_structural.A_adapter;
 
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
 public class C_Exercise {
+    @Test
+    public void test()
+    {
+        Square sq = new Square(11);
+        SquareToRectangleAdapter adapter = new SquareToRectangleAdapter(sq);
+        assertEquals(121, adapter.getArea());
+    }
 }
 
 class Square {
