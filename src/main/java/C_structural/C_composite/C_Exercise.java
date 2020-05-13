@@ -2,9 +2,8 @@ package C_structural.C_composite;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class C_Exercise {
     public static void main(String[] args) {
@@ -26,17 +25,7 @@ class SingleValue implements ValueContainer
 
     @Override
     public Iterator<Integer> iterator() {
-        return null;
-    }
-
-    @Override
-    public void forEach(Consumer<? super Integer> action) {
-
-    }
-
-    @Override
-    public Spliterator<Integer> spliterator() {
-        return null;
+        return Collections.singleton(value).iterator();
     }
 }
 
@@ -55,6 +44,13 @@ class MyList extends ArrayList<ValueContainer>
 
     public int sum()
     {
-        // todo
+        int result = 0;
+        for (ValueContainer vc : this) {
+            for (int i : vc) {
+                result += i;
+            }
+        }
+
+        return result;
     }
 }
