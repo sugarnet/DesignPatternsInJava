@@ -5,13 +5,14 @@
  */
 package B_creational.B_factory;
 
+import org.javatuples.Pair;
+import org.reflections.Reflections;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javafx.util.Pair;
-import org.reflections.Reflections;
 
 /**
  *
@@ -91,7 +92,7 @@ class HotDrinkMachine {
         System.out.println("Available drinks:");
         for (int index = 0; index < namedFactories.size(); index++) {
             Pair<String, HotDrinkFactory> item = namedFactories.get(index);
-            System.out.println("" + index + ": " + item.getKey());
+            System.out.println("" + index + ": " + item.getValue0());
         }
         
         final BufferedReader reader 
@@ -110,7 +111,7 @@ class HotDrinkMachine {
                 s = reader.readLine();
                 
                 if (s != null && (amount = Integer.parseInt(s)) > 0) {
-                    return namedFactories.get(i).getValue().prepare(amount);
+                    return namedFactories.get(i).getValue1().prepare(amount);
                 }
             }
             System.out.println("Incorrect input, try again.");
