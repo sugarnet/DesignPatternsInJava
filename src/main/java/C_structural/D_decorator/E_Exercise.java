@@ -3,39 +3,43 @@ package C_structural.D_decorator;
 public class E_Exercise {
 }
 
-class Bird
-{
+class Bird {
     public int age;
 
-    public String fly()
-    {
+    public String fly() {
         return age < 10 ? "flying" : "too old";
     }
 }
 
-class Lizard
-{
+class Lizard {
     public int age;
 
-    public String crawl()
-    {
+    public String crawl() {
         return (age > 1) ? "crawling" : "too young";
     }
 }
 
-class Dragon
-{
+class Dragon {
+    private Lizard lizard;
+    private Bird bird;
     private int age;
-    public void setAge(int age)
-    {
-        // todo
+
+    public Dragon() {
+        this.lizard = new Lizard();
+        this.bird = new Bird();
     }
-    public String fly()
-    {
-        // todo
+
+    public void setAge(int age) {
+        this.age = age;
+        this.lizard.age = age;
+        this.bird.age = age;
     }
-    public String crawl()
-    {
-        // todo
+
+    public String fly() {
+        return bird.fly();
+    }
+
+    public String crawl() {
+        return lizard.crawl();
     }
 }
