@@ -1,4 +1,4 @@
-package C_structural.F_Flyweight;
+package C_structural.F_flyweight;
 
 import java.util.ArrayList;
 import java.util.Arrays;
