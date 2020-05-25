@@ -3,8 +3,7 @@ package C_structural.G_proxy.D_exercise;
 public class Exercise {
 }
 
-class Person
-{
+class Person {
     private int age;
 
     public Person(int age)
