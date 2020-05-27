@@ -1,4 +1,4 @@
-package C_structural.H_chainofresponsability.B_BrokerChain;
+package D_behavioral.A_chainofresponsability.B_BrokerChain;
 
 import java.util.HashMap;
 import java.util.Map;

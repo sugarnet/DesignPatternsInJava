@@ -1,4 +1,4 @@
-package C_structural.H_chainofresponsability;
+package D_behavioral.A_chainofresponsability;
 
 public class A_MethodChain {
     public static void main(String[] args) {
