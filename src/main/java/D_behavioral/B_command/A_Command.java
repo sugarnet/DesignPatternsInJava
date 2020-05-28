@@ -1,6 +1,7 @@
 package D_behavioral.B_command;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class A_Command {
@@ -16,6 +17,12 @@ public class A_Command {
             c.call();
             System.out.println(ba);
         }
+
+        Collections.reverse(commands);
+        for (Command c : commands) {
+            c.undo();
+            System.out.println(ba);
+        }
     }
 }
 
@@ -28,11 +35,13 @@ class BankAccount {
         System.out.println("Deposited " + amount + ", now the balance is " + balance);
     }
 
-    public void withdraw(int amount) {
+    public boolean withdraw(int amount) {
         if (balance - amount >= overdraftLimit) {
             balance -= amount;
             System.out.println("Withdrew " + amount + ", now the balance is " + balance);
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -45,11 +54,13 @@ class BankAccount {
 
 interface Command {
     void call();
+    void undo();
 }
 
 class BankAccountCommand implements Command {
     private int amount;
     private BankAccount bankAccount;
+    private boolean succeeded;
 
 
     public enum Action {
@@ -67,10 +78,25 @@ class BankAccountCommand implements Command {
 
         switch (action) {
             case DEPOSIT:
+                succeeded = true;
                 bankAccount.deposit(amount);
                 break;
             case WITHDRAW:
+                succeeded = bankAccount.withdraw(amount);
+                break;
+        }
+    }
+
+    @Override
+    public void undo() {
+        if (!succeeded) return;
+
+        switch (action) {
+            case DEPOSIT:
                 bankAccount.withdraw(amount);
+                break;
+            case WITHDRAW:
+                bankAccount.deposit(amount);
                 break;
         }
     }
