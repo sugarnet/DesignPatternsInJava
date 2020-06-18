@@ -1,4 +1,4 @@
-package D_behavioral.H_observer.B_AnEventClass;
+package D_behavioral.H_observer.B_aneventclass;
 
 import java.util.HashMap;
 import java.util.Map;
