@@ -53,6 +53,12 @@
             <artifactId>rxjava</artifactId>
             <version>3.0.4</version>
         </dependency>
+        <!-- Statemachine -->
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-core</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
 
     </dependencies>
 </project>
