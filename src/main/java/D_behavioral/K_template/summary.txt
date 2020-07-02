@@ -10,3 +10,8 @@
 
 * Definition
 Allow us to define the 'skeleton' of the algorithm, with concrete implementations defined in subclasses.
+
+* Summary
+- Define an algorithm at a high level
+- Define constituent parts as abstract methods/properties
+- Inherit the algorithm class, providing necessary overrides.
